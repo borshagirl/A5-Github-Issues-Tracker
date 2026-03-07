@@ -1,4 +1,4 @@
-
+// login page into homepage
 document.getElementById('login-btn').addEventListener('click', function () {
     // 1. get the username
     const inputUserName = document.getElementById('input-username');
@@ -22,6 +22,8 @@ document.getElementById('login-btn').addEventListener('click', function () {
         // 3-2. false >> alert >> return
         alert('SignIn Failed');
         return;
-    }
+    };
 
-})
+});
+
+

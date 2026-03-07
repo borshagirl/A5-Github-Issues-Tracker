@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Github Issue Trucker</title>
+    <!-- fab icon link -->
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- DaisyUi & Tailwind Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;  
+        }
+    </style>
+
 </head>
-<body>
-    Homepage login
+<body class="bg-gray-50">
+    <!-- navbar -->
+    <header class="w-11/12 mx-auto flex justify-between bg-white shadow-sm p-2">
+        <div class="flex items-center gap-1">
+            <img class="w-6" src="assets/github-logo.png" alt="">
+            <h2 class="text-md font-semibold">Github Issue Trucker</h2>
+        </div>
+        <div class="flex gap-3">
+           <label class="input">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <g
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </g>
+                </svg>
+                <input type="search" required placeholder="Search Issues..." />
+            </label>
+            <button class="btn btn-primary w-32"><span><i class="fa-solid fa-plus"></i></span>New Issue</button>
+        </div>
+    </header>
+
+    <main class="w-9/12 mx-auto mt-7 mb-4 shadow-sm">
+        <section class="bg-white p-2">
+            <div class="flex items-center gap-2">
+                <button onclick="loadAll()" class="btn btn-primary w-20 h-8">All</button>
+                <button onclick="loadOpen()" class="btn h-8">Open</button>
+                <button onclick="loadClosed()" class="btn h-8">Closed</button>
+            </div>
+
+            
+            
+        </section>
+    </main>
+
+
 </body>
 </html>
