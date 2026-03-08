@@ -44,25 +44,74 @@
                     <path d="m21 21-4.3-4.3"></path>
                   </g>
                 </svg>
-                <input type="search" required placeholder="Search Issues..." />
+                <input id="search-issue" type="search" required placeholder="Search Issues..." />
             </label>
-            <button class="btn btn-primary w-32"><span><i class="fa-solid fa-plus"></i></span>New Issue</button>
+            <button onclick="searchNewIssue()" class="btn btn-primary w-32"><span><i class="fa-solid fa-plus"></i></span>New Issue</button>
         </div>
     </header>
 
-    <main class="w-9/12 mx-auto mt-7 mb-4 shadow-sm">
-        <section class="bg-white p-2">
+    <main class="w-9/12 mx-auto mt-7 mb-4">
+        <!-- btn section -->
+        <section class="bg-white p-2 shadow-sm">
             <div class="flex items-center gap-2">
                 <button onclick="loadAll()" class="btn btn-primary w-20 h-8">All</button>
                 <button onclick="loadOpen()" class="btn h-8">Open</button>
                 <button onclick="loadClosed()" class="btn h-8">Closed</button>
-            </div>
+            </div>  
+        </section>
 
-            
-            
+        <!-- manage count issue -->
+        <section class="flex justify-between mt-4 bg-white shadow-sm">
+            <div class="flex items-center p-4 gap-2">
+                <img class="w-10 h-10 bg-[#ddd1f9] p-2 rounded-full" src="assets/Aperture.png" alt="">
+                <div>
+                    <h2 class="text-md font-semibold">50 Issues</h2>
+                    <p class="w-[250px] text-[12px] text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 pr-4">
+                <div class="flex items-center gap-1">
+                    <span class="w-[10px] h-[10px] rounded-full bg-green-600"></span>
+                    <span class="text-[12px] font-medium">Open</span>
+                </div>
+
+                <div class="flex items-center gap-1">
+                    <span class="w-[10px] h-[10px] rounded-full bg-purple-600"></span>
+                    <span class="text-[12px] font-medium">Closed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic cards section -->
+         <section class="mt-5">
+            <div id="issues-container" class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <!-- <div class="space-y-2 bg-white p-2 shadow-xl">
+                    <div class="flex justify-end">
+                        <p class="w-20 h-6 text-center rounded-full bg-red-200">High</p>
+                    </div>
+                    <h2 class="w-[200px] text-md font-semibold">Fix navigation menu on mobile devices</h2>
+                    <p class="text-[12px] text-gray-500">The navigation menu doesn't collapse properly on mobile devices</p>
+                    <div class="flex items-center gap-2">
+                        <h3 class="w-16 h-6 text-center border border-red-600 rounded-full bg-red-200">BUG</h3>
+                        <h3 class="w-30 h-6 text-center border border-[#ae8c03] rounded-full bg-[#fde68a]">Help Wanted</h3>
+                    </div>
+                    <hr class="text-gray-400">
+                    <div>
+                        <p class="text-[14px] text-gray-500">by john_doe</p>
+                        <p class="text-[14px] text-gray-500">1/15/2024</p>
+                    </div>
+                </div> -->
+            </div>
+         </section>
+
+        <!-- loading spinner -->
+        <section>
+             <div id="loading-spinner" class="text-center hidden">
+                <span class="loading loading-dots loading-md"></span>
+            </div>
         </section>
     </main>
 
-
+    <script src="script/home.js"></script>
 </body>
 </html>

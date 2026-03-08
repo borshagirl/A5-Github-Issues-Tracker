@@ -1,5 +1,5 @@
 // login page into homepage
-document.getElementById('login-btn').addEventListener('click', function () {
+document.getElementById('login-btn').addEventListener("click", function () {
     // 1. get the username
     const inputUserName = document.getElementById('input-username');
     const userName = inputUserName.value;
