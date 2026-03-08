@@ -61,7 +61,8 @@ const displayAll = (issues) => {
         
         `;
 
-        if(issue.status === "open") {
+        // green for all open & purple for all closed
+         if(issue.status === "open") {
             div.style.borderTop = "3px solid green"
             div.style.borderRadius = "8px"
         }
@@ -69,7 +70,7 @@ const displayAll = (issues) => {
             div.style.borderTop = "3px solid purple"
             div.style.borderRadius = "8px"
         };
-
+       
 
         issueContainer.append(div);
     });
