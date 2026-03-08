@@ -34,8 +34,9 @@ function switchTab (tab) {
         else {
             tabName.classList.remove(...tabActive);
             tabName.classList.add(...tabInActive);
-        }
-    }
+        };
+    };
+
 
     if(tab === "all"){
         loadAll();
@@ -51,6 +52,14 @@ function switchTab (tab) {
 
 
 };
+
+
+switchTab(currentTab);
+
+
+// update issue count
+const countIssues = document.getElementById("count-issues");
+countIssues.innerText = issueContainer.children.length;
 
 
 
@@ -78,7 +87,7 @@ async function loadAll () {
 
 const displayAll = (issues) => {
     issueContainer.innerHTML = "";
-
+    
     issues.forEach(issue => {
         // console.log(issue);
         
@@ -162,9 +171,9 @@ fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     data.data.forEach(issue => {
         issue.labels.map(label => {
             // console.log(label);
-        })
-    })
-})
+        });
+    });
+});
 
 
 async function openMyModal(issueId){
