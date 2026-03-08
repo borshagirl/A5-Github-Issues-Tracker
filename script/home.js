@@ -5,6 +5,7 @@ let tabInActive = ["bg-white", "text-gray-500"];
 
 
 const issueContainer = document.getElementById('issues-container');
+const countIssues = document.getElementById("count-issues");
 const loadingSpinner = document.getElementById('loading-spinner');
 const showMyModal = document.getElementById('my-modal');
 
@@ -53,13 +54,7 @@ function switchTab (tab) {
 
 };
 
-
 switchTab(currentTab);
-
-
-// update issue count
-const countIssues = document.getElementById("count-issues");
-countIssues.innerText = issueContainer.children.length;
 
 
 
@@ -87,6 +82,8 @@ async function loadAll () {
 
 const displayAll = (issues) => {
     issueContainer.innerHTML = "";
+    // update count issues
+    countIssues.innerText = issues.length + " " + "Issues";
     
     issues.forEach(issue => {
         // console.log(issue);
