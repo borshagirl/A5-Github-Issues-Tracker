@@ -1,4 +1,9 @@
 
+let currentTab = "all";
+let tabActive = ["bg-blue-700", "text-white"];
+let tabInActive = ["bg-white", "text-gray-500"];
+
+
 const issueContainer = document.getElementById('issues-container');
 const loadingSpinner = document.getElementById('loading-spinner');
 const showMyModal = document.getElementById('my-modal');
@@ -11,6 +16,41 @@ const modalLabel = document.getElementById("modal-label");
 const modalHr = document.getElementById("modal-hr");
 const modalAuthor = document.getElementById("modal-author");
 const modalCreatedAt = document.getElementById("modal-createdAt");
+
+
+function switchTab (tab) {
+    // console.log(tab);
+    const tabs = ["all", "open", "closed"];
+
+    for(const t of tabs) {
+        const tabName = document.getElementById("tab-" + t);
+        // console.log(tabName);
+        
+
+        if(t === tab) {
+            tabName.classList.remove(...tabInActive);
+            tabName.classList.add(...tabActive);
+        }
+        else {
+            tabName.classList.remove(...tabActive);
+            tabName.classList.add(...tabInActive);
+        }
+    }
+
+    if(tab === "all"){
+        loadAll();
+    };
+
+    if(tab === "open"){
+        loadOpen();
+    };
+
+    if(tab === "closed"){
+        loadClosed();
+    };
+
+
+};
 
 
 
