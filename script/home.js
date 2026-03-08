@@ -87,5 +87,4 @@ async function searchNewIssue () {
 
 
 
-
 loadAll();
