@@ -12,8 +12,7 @@ const showMyModal = document.getElementById('my-modal');
 const modalPriority = document.getElementById("modal-priority");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
-const modalLabelBug = document.getElementById("modal-labelBug");
-const modalLabel = document.getElementById("modal-label");
+const modalLabel = document.getElementById("modalLabels");
 const modalHr = document.getElementById("modal-hr");
 const modalAuthor = document.getElementById("modal-author");
 const modalCreatedAt = document.getElementById("modal-createdAt");
@@ -187,16 +186,33 @@ async function openMyModal(issueId){
     const data = json.data
     console.log(data, 'data');
 
+     let labHTML = ""
+        data.labels.forEach(lab => {
+
+            let bgColor = "#bbf7d0"
+
+            if(lab === "bug") {
+                bgColor = "#feecec"
+                
+            }
+            else if (lab === "help wanted") {
+                bgColor = "#fff8db"
+            };
+
+            labHTML += `<span class="lab" style="background:${bgColor}; padding:3px; border-radius:10px">${lab}</span>`
+             
+        });
 
     modalPriority.textContent = data.priority;
     modalTitle.textContent = data.title;
     modalDescription.textContent = data.description;
     // modalLabel.textContent = "data.${labHTML}"
+    modalLabel.innerHTML = `${labHTML}`
+
     modalAuthor.textContent = data.author;
     modalCreatedAt.textContent = data.createdAt;
 
     showMyModal.showModal()
-
 
 };
 
