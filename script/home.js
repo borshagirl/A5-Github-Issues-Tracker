@@ -87,6 +87,25 @@ const displayAll = (issues) => {
     
     issues.forEach(issue => {
         // console.log(issue);
+
+
+        // labels ---> loop 
+        let labHTML = ""
+        issue.labels.forEach(lab => {
+
+            let bgColor = "#bbf7d0"
+
+            if(lab === "bug") {
+                bgColor = "#feecec"
+                
+            }
+            else if (lab === "help wanted") {
+                bgColor = "#fff8db"
+            };
+
+            labHTML += `<span class="lab" style="background:${bgColor}; padding:3px; border-radius:10px">${lab}</span>`
+             
+        });
         
         const div = document.createElement("div");
         div.innerHTML = `
@@ -96,9 +115,9 @@ const displayAll = (issues) => {
                     </div>
                     <h2 class="w-[200px] text-md font-semibold" >${issue.title}</h2>
                     <p class="line-clamp-2 text-[12px] text-gray-500">${issue.description}</p>
-                    <p>${issue.status}</p>
-                    <div class="flex items-center gap-2">
-                        <h3 class="text-center">${issue.labels}</h3>
+                    <p class="text-sm font-semibold text-blue-700">${issue.status.toUpperCase()}</p>
+                    <div class="flex items-center gap-1">
+                        ${labHTML}
                     </div>
                     <hr class="text-gray-400">
                     <div>
@@ -160,19 +179,6 @@ async function searchNewIssue () {
 };
 
 
-// labels ---> loop 
-
-fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-.then((res) => res.json())
-.then((data) => {
-    data.data.forEach(issue => {
-        issue.labels.map(label => {
-            // console.log(label);
-        });
-    });
-});
-
-
 async function openMyModal(issueId){
     console.log(issueId);
 
@@ -182,13 +188,10 @@ async function openMyModal(issueId){
     console.log(data, 'data');
 
 
-    
     modalPriority.textContent = data.priority;
     modalTitle.textContent = data.title;
     modalDescription.textContent = data.description;
-    modalLabelBug.textContent = data.labels;
-    // modalLabel.textContent = data.labels;
-    // modalHr.textContent = data.hr;
+    // modalLabel.textContent = "data.${labHTML}"
     modalAuthor.textContent = data.author;
     modalCreatedAt.textContent = data.createdAt;
 
